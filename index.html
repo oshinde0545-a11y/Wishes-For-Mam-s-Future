@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Prajakta Madam, With Love 🌷</title>
+
+<style>
+:root {
+  --pink: #f7dce5;
+  --pink-dark: #c96b8b;
+  --cream: #fffaf2;
+  --gold: #bd9651;
+  --text: #55434b;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #fff8f0, #fce8ee, #fffaf2);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  padding: 24px 15px 40px;
+  animation: fadeIn .5s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+.content {
+  width: 100%;
+  max-width: 760px;
+  margin: auto;
+  text-align: center;
+}
+
+h1 {
+  color: #a94e70;
+  font-size: clamp(32px, 7vw, 52px);
+  margin: 16px 0;
+}
+
+h2 {
+  color: #a94e70;
+  font-size: clamp(25px, 5vw, 36px);
+  margin: 18px 0;
+}
+
+h3 {
+  color: #a94e70;
+  margin: 18px 0 10px;
+  font-size: 23px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.9;
+  margin: 13px 0;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.eyebrow {
+  color: #ad7b39;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+.flower {
+  font-size: 56px;
+  margin: 18px 0;
+}
+
+.card {
+  background: rgba(255,255,255,.83);
+  border: 1px solid #f0d4dd;
+  border-radius: 22px;
+  padding: 24px;
+  margin: 20px 0;
+  box-shadow: 0 8px 25px rgba(139, 78, 100, .08);
+  text-align: left;
+}
+
+.card p {
+  text-align: left;
+}
+
+.card h3 {
+  text-align: center;
+}
+
+.quote {
+  color: #a94e70;
+  font-style: italic;
+  font-size: 19px;
+  text-align: center !important;
+  padding: 8px;
+}
+
+.gold {
+  color: #a77c32;
+  font-weight: bold;
+}
+
+.signature {
+  text-align: right !important;
+  font-style: italic;
+  color: #a94e70;
+  margin-top: 25px;
+}
+
+.divider {
+  width: 65px;
+  height: 2px;
+  background: #d9b36c;
+  margin: 24px auto;
+}
+
+.btn {
+  display: inline-block;
+  border: 1px solid #e4b6c6;
+  background: white;
+  color: #a94e70;
+  border-radius: 30px;
+  padding: 13px 22px;
+  margin: 7px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px #e8c5d1;
+}
+
+.btn.primary {
+  color: white;
+  background: linear-gradient(135deg, #c96b8b, #b55376);
+  border: none;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin: 25px 0;
+}
+
+.menu button {
+  background: rgba(255,255,255,.88);
+  border: 1px solid #f0d1dc;
+  border-radius: 18px;
+  padding: 18px 12px;
+  cursor: pointer;
+  color: var(--text);
+  font-family: inherit;
+  min-height: 140px;
+  transition: .25s;
+}
+
+.menu button:hover {
+  transform: translateY(-4px);
+  background: #fff;
+  box-shadow: 0 7px 20px #eacbd5;
+}
+
+.menu-icon {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.menu-title {
+  display: block;
+  font-size: 17px;
+  font-weight: bold;
+  color: #a94e70;
+  margin-bottom: 7px;
+}
+
+.menu-desc {
+  display: block;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.header-title {
+  flex: 1;
+  color: #a94e70;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.back {
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #a94e70;
+  font-size: 23px;
+  cursor: pointer;
+}
+
+.small-note {
+  font-size: 14px;
+  opacity: .8;
+  margin-top: 25px;
+}
+
+.petal {
+  position: fixed;
+  top: -35px;
+  z-index: 10;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(540deg);
+    opacity: .1;
+  }
+}
+
+@media (max-width: 420px) {
+  .card { padding: 18px; }
+  .menu { gap: 9px; }
+  .menu button { padding: 14px 8px; }
+  .menu-title { font-size: 15px; }
+  .menu-desc { font-size: 12px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 1. WELCOME -->
+<section class="screen active" id="welcome">
+  <div class="content">
+    <div class="flower">🌷</div>
+    <div class="eyebrow">A little website, a lot of gratitude</div>
+
+    <h1>For Prajakta Madam</h1>
+
+    <p class="subtitle">
+      Some people teach us lessons.<br>
+      Some people guide us through life.<br>
+      And some people leave a beautiful mark on our hearts.
+    </p>
+
+    <div class="card">
+      <p class="quote">
+        "The best teachers leave footprints of kindness,
+        understanding, and inspiration in the hearts of their students."
+      </p>
+    </div>
+
+    <p>Made with love, respect, and gratitude by your students. 💗</p>
+
+    <button class="btn primary" onclick="showScreen('home')">
+      Open Your Special Surprise 🌸
+    </button>
+  </div>
+</section>
+
+<!-- 2. HOME MENU -->
+<section class="screen" id="home">
+  <div class="content">
+    <div class="flower">💐</div>
+    <div class="eyebrow">Every message comes from the heart</div>
+    <h1>Dear Prajakta Madam</h1>
+
+    <p class="subtitle">
+      This little space is dedicated to the values, memories,
+      kindness, and guidance that make you special to us.
+    </p>
+
+    <div class="menu">
+      <button onclick="showScreen('awareness')">
+        <span class="menu-icon">🕊️</span>
+        <span class="menu-title">Awareness & Inspiration</span>
+        <span class="menu-desc">Spreading awareness and positive change.</span>
+      </button>
+
+      <button onclick="showScreen('environment')">
+        <span class="menu-icon">🌿</span>
+        <span class="menu-title">Protect Our Environment</span>
+        <span class="menu-desc">Small actions for a greener world.</span>
+      </button>
+
+      <button onclick="showScreen('kindness')">
+        <span class="menu-icon">💗</span>
+        <span class="menu-title">Kindness & Well-being</span>
+        <span class="menu-desc">Care, compassion, and understanding.</span>
+      </button>
+
+      <button onclick="showScreen('social')">
+        <span class="menu-icon">🤝</span>
+        <span class="menu-title">Social Causes</span>
+        <span class="menu-desc">Making a difference together.</span>
+      </button>
+
+      <button onclick="showScreen('letter')">
+        <span class="menu-icon">💌</span>
+        <span class="menu-title">A Letter for You</span>
+        <span class="menu-desc">Our heartfelt farewell wishes.</span>
+      </button>
+
+      <button onclick="showScreen('thanks')">
+        <span class="menu-icon">💖</span>
+        <span class="menu-title">Special Thanks</span>
+        <span class="menu-desc">A heartfelt message from CM(3)K A.</span>
+      </button>
+
+      <button onclick="showScreen('swami')">
+        <span class="menu-icon">🙏</span>
+        <span class="menu-title">Swami's Blessings</span>
+        <span class="menu-desc">Prayers for your bright future.</span>
+      </button>
+
+      <button onclick="showScreen('final')">
+        <span class="menu-icon">✨</span>
+        <span class="menu-title">A Lasting Message</span>
+        <span class="menu-desc">A goodbye filled with gratitude.</span>
+      </button>
+    </div>
+
+    <p class="small-note">With respect and warm wishes, always. 🌷</p>
+  </div>
+</section>
+
+<!-- 3. AWARENESS -->
+<section class="screen" id="awareness">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">Awareness & Inspiration</div>
+      <span>🕊️</span>
+    </div>
+
+    <div class="flower">🌍</div>
+    <h2>Small Voices, Meaningful Change</h2>
+
+    <div class="card">
+      <p>
+        Awareness begins when we choose to understand the world around us.
+        Every thoughtful conversation, every responsible decision, and
+        every effort to help others can make a difference.
+      </p>
+      <p>
+        Thank you, Madam, for reminding us that education is not only about
+        gaining knowledge. It is also about becoming thoughtful,
+        responsible, and compassionate human beings.
+      </p>
+      <div class="divider"></div>
+      <p class="quote">
+        "Knowledge becomes powerful when we use it to make the world better."
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('home')">Back to Menu</button>
+  </div>
+</section>
+
+<!-- 4. ENVIRONMENT -->
+<section class="screen" id="environment">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">Environmental Protection</div>
+      <span>🌿</span>
+    </div>
+
+    <div class="flower">🌱</div>
+    <h2>A Greener Tomorrow</h2>
+
+    <div class="card">
+      <p>
+        Protecting nature begins with simple actions: keeping our surroundings
+        clean, reducing waste, saving water, planting trees, and respecting
+        every form of life.
+      </p>
+      <p>
+        The lessons that truly matter are the ones we carry beyond the
+        classroom. We hope to keep learning, growing, and contributing
+        positively to the world around us.
+      </p>
+      <div class="divider"></div>
+      <p class="quote">
+        "Let us leave the world a little greener and kinder than we found it."
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('home')">Back to Menu</button>
+  </div>
+</section>
+
+<!-- 5. KINDNESS -->
+<section class="screen" id="kindness">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">Kindness & Well-being</div>
+      <span>💗</span>
+    </div>
+
+    <div class="flower">🫶</div>
+    <h2>The Beauty of Understanding</h2>
+
+    <div class="card">
+      <p>
+        Sometimes, the most meaningful support is simply listening,
+        understanding, and helping someone feel that they are not alone.
+      </p>
+      <p>
+        Thank you for the patience and understanding you have shown us.
+        Your guidance has reminded us that everyone learns differently,
+        everyone faces challenges, and everyone deserves encouragement.
+      </p>
+      <p>
+        We hope to carry that kindness forward and treat others with
+        the same patience and respect.
+      </p>
+      <div class="divider"></div>
+      <p class="quote">
+        "Kindness may seem small in the moment, but its impact can last forever."
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('home')">Back to Menu</button>
+  </div>
+</section>
+
+<!-- 6. SOCIAL CAUSES -->
+<section class="screen" id="social">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">Social Causes</div>
+      <span>🤝</span>
+    </div>
+
+    <div class="flower">🌈</div>
+    <h2>Better Together</h2>
+
+    <div class="card">
+      <p>
+        A better society is built when people support one another,
+        respect differences, help those in need, and stand for what is right.
+      </p>
+      <p>
+        Education gives us the opportunity to make meaningful contributions
+        to our communities. We hope to use what we learn to become
+        responsible citizens and helpful members of society.
+      </p>
+      <div class="divider"></div>
+      <p class="quote">
+        "We may not change everything at once, but every good action matters."
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('home')">Back to Menu</button>
+  </div>
+</section>
+
+<!-- 7. PERSONAL FAREWELL LETTER -->
+<section class="screen" id="letter">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">A Letter for You</div>
+      <span>💌</span>
+    </div>
+
+    <div class="flower">💌</div>
+    <div class="eyebrow">A letter from our hearts</div>
+    <h2>Dear Prajakta Madam,</h2>
+
+    <div class="card">
+      <p>
+        It is difficult to put into words how much a teacher can mean
+        to a class. Sometimes, we only realise the value of someone's
+        presence when a new chapter begins and we have to say goodbye.
+      </p>
+
+      <p>
+        You have been more than a teacher to us. Your understanding,
+        guidance, patience, and encouragement have made a difference
+        in our journey. The time we have spent learning from you will
+        always remain a meaningful part of our memories.
+      </p>
+
+      <p>
+        Thank you for guiding us, for giving us opportunities to learn,
+        and for helping us move forward. We may not have expressed our
+        gratitude often enough, but please know that we genuinely
+        appreciate the time and effort you have shared with us.
+      </p>
+
+      <div class="divider"></div>
+
+      <p>
+        As you move forward to continue your studies and pursue your
+        dreams, we wish you endless courage, confidence, happiness,
+        and success. May every new lesson bring you closer to your goals,
+        every challenge make you stronger, and every opportunity open
+        a wonderful new door.
+      </p>
+
+      <p>
+        May you always believe in yourself, stay true to your values,
+        and find joy in the path you choose. We hope your future brings
+        you meaningful achievements, wonderful experiences, and people
+        who support and appreciate you.
+      </p>
+
+      <p>
+        Distance and changing circumstances may take people in different
+        directions, but genuine respect and gratitude remain. Wherever
+        life takes you, we will remember your guidance with warmth.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="quote">
+        "Some goodbyes mark the end of a chapter, but the lessons,
+        kindness, and memories become a part of our story forever."
+      </p>
+
+      <p>
+        This is not simply a goodbye. It is our way of saying thank you
+        for being part of our journey, and good luck as you begin yours.
+      </p>
+
+      <p class="gold">
+        May your future be filled with knowledge, growth, wonderful
+        opportunities, and achievements beyond your expectations.
+      </p>
+
+      <p>
+        May Shri Swami Samarth always bless you with wisdom, peace,
+        strength, and success in every step of your life.
+      </p>
+
+      <p class="signature">
+        With love, respect, and best wishes,<br>
+        Your grateful students 💗
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('thanks')">
+      Read Our Class's Special Thanks 💖
+    </button>
+    <button class="btn" onclick="showScreen('home')">Back to Menu</button>
+  </div>
+</section>
+
+<!-- 8. SPECIAL THANKS FROM THE WHOLE CLASS -->
+<section class="screen" id="thanks">
+  <div class="content">
+    <div class="header">
+      <button class="back" onclick="showScreen('home')">←</button>
+      <div class="header-title">A Message From Our Class</div>
+      <span>💖</span>
+    </div>
+
+    <div class="flower">💐</div>
+    <div class="eyebrow">With love and gratitude from CM(3)K A</div>
+
+    <h2>Special Thanks, Prajakta Madam!</h2>
+
+    <p class="subtitle">
+      One class. Many memories. Countless reasons to be grateful.
+    </p>
+
+    <div class="card">
+      <p><strong>Dearest Prajakta Madam,</strong></p>
+
+      <p>
+        Today, our entire class wants to express something that words
+        can never fully measure: our heartfelt gratitude for having you
+        as a part of our journey. We may be a classroom full of different
+        personalities, thoughts, habits, and dreams, but we share one
+        beautiful feeling today—we are truly thankful for you.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>Thank You for Understanding Us 💗</h3>
+
+      <p>
+        Thank you for trying to understand us, even when we could not
+        explain ourselves properly. Thank you for being patient with our
+        questions, our mistakes, our doubts, and our different ways of
+        learning. Your willingness to listen has meant more to us than
+        we may have shown.
+      </p>
+
+      <p>
+        Sometimes, students need more than an explanation from a teacher.
+        They need someone who listens without judging, someone who
+        encourages them when they doubt themselves, and someone who
+        helps them find direction when they feel confused.
+        We are grateful for the understanding and guidance you have
+        offered us.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>Thank You for Guiding Our Class 🌷</h3>
+
+      <p>
+        Thank you for guiding us when we needed help, correcting us
+        when we made mistakes, and encouraging us to keep learning.
+        Every piece of advice, every moment of patience, and every
+        effort you made to help us has its own value.
+      </p>
+
+      <p>
+        We know that teaching requires dedication, energy, patience,
+        and a caring heart. We may not always have recognised every
+        effort in the moment, and we may not always have expressed
+        our appreciation as we should have. But today, we want you
+        to know that your efforts are valued and your guidance is
+        genuinely appreciated.
+      </p>
+
+      <p>
+        Thank you for giving us the space to learn, the confidence
+        to ask questions, and the encouragement to become better.
+        The impact of a caring teacher often continues long after
+        a lesson ends, and we hope to carry your positive influence
+        with us into our future.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>From Every Heart in CM(3)K A 💐</h3>
+
+      <p>
+        Our class would not be the same collection of memories without
+        the moments we have shared with you. We will remember the
+        lessons, the guidance, the conversations, the encouragement,
+        and even the little moments that may have seemed ordinary
+        at the time but now mean something special to us.
+      </p>
+
+      <p>
+        If we have ever disappointed you, misunderstood your advice,
+        or failed to express our respect properly, please accept our
+        sincere apologies. We are still learning and growing, and
+        we are grateful to the people who guide us along the way.
+      </p>
+
+      <p>
+        We hope you know that your kindness has mattered, your patience
+        has mattered, and your presence has mattered. You have been
+        an important part of our class experience, and we will always
+        be thankful for that.
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>Our Wishes for Your New Journey ✨</h3>
+
+      <p>
+        As you continue your studies and work towards your own dreams,
+        we wish you the same encouragement, understanding, and support
+        that you have given to us. May your efforts bring you closer
+        to every goal you cherish.
+      </p>
+
+      <p>
+        May you discover exciting opportunities, meet wonderful people,
+        overcome every challenge with confidence, and experience
+        success that makes you proud. May your journey be filled with
+        happiness, good health, peace, knowledge, and personal growth.
+      </p>
+
+      <p>
+        No matter where your future takes you, we hope you continue
+        to inspire others, follow your dreams fearlessly, and remember
+        that the students you guided are wishing you the very best.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="quote">
+        "A teacher may forget the little things she does each day,
+        but her students may carry those moments of understanding,
+        encouragement, and kindness in their hearts for years."
+      </p>
+
+      <div class="divider"></div>
+
+      <h3>Madam, This Is Our Thank You. ❤️</h3>
+
+      <p>
+        Thank you for understanding us when we needed to be understood.
+        Thank you for guiding us when we needed direction. Thank you
+        for your patience when we needed time. Thank you for encouraging
+        us to learn, grow, and keep moving forward.
+      </p>
+
+      <p>
+        Most importantly, thank you for being a part of our story.
+        We cannot give back every moment you have invested in us,
+        but we can carry your lessons forward and try to become
+        better people because of them.
+      </p>
+
+      <p class="gold" style="font-size:19px; text-align:center;">
+        You will always have our respect, our gratitude,
+        and a special place in the memories of CM(3)K A.
+      </p>
+
+      <p style="text-align:center;">
+        We appreciate you more than these words can express.
+        <br><strong>Thank you for everything, Prajakta Madam! 🌸</strong>
+      </p>
+
+      <p>
+        May Shri Swami Samarth bless you and your family with happiness,
+        peace, good health, wisdom, strength, and success in every
+        chapter of life.
+      </p>
+
+      <p class="signature">
+        With immense gratitude, love, and respect,<br>
+        From every heart in CM(3)K A 💖<br>
+        Your students, always.
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="showScreen('swami')">
+      Our Prayers and Blessings for You 🙏
+    </button>
+
+    <button class="btn" onclick="showScreen('home')">
+      Back to All Messages
+    </button>
+  </div>
+</section>
+
+<!-- 9. SWAMI SAMARTH BLESSINGS -->
+<section class="screen" id="swami">
+  <div class="content">
+    <div class="flower">🙏</div>
+    <div class="eyebrow">With faith, hope, and devotion</div>
+
+    <h1>Shri Swami Samarth</h1>
+    <h2>May His Blessings Always Be With You</h2>
+
+    <div class="card">
+      <p>
+        Dear Prajakta Madam, may Shri Swami Samarth guide you
+        through every new beginning and give you strength during
+        every challenge.
+      </p>
+
+      <p>
+        May your mind remain peaceful, your heart remain hopeful,
+        and your efforts lead you towards your dreams. May you
+        always find courage when the road is difficult and gratitude
+        when life brings you beautiful moments.
+      </p>
+
+      <p>
+        As you continue your studies and pursue your goals, may
+        you be blessed with wisdom, good health, happiness, and
+        success. May you and your family always be surrounded
+        by peace and positivity.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="quote">
+        "Shri Swami Samarth, please bless Prajakta Madam with
+        strength for every challenge, light for every decision,
+        and success in every sincere effort."
+      </p>
+
+      <h3>Shri Swami Samarth 🙏</h3>
+      <p style="text-align:center;">Anant Koti Brahmand Nayak Rajadhiraj Yogiraj Parabrahma Shri Swami Samarth!</p>
+    </div>
+
+    <button class="btn primary" onclick="celebrate(); showScreen('final')">
+      One Last Message ✨
+    </button>
+  </div>
+</section>
+
+<!-- 10. FINAL MESSAGE -->
+<section class="screen" id="final">
+  <div class="content">
+    <div class="flower">🌸💖🌸</div>
+    <div class="eyebrow">A goodbye, but never forgotten</div>
+
+    <h1>Until Our Paths Cross Again</h1>
+
+    <div class="card">
+      <p>
+        Dear Prajakta Madam, this website may be small, but the
+        gratitude behind it is sincere. We created it to remind
+        you that your guidance, understanding, and kindness have
+        meant something to us.
+      </p>
+
+      <p>
+        As you begin your next chapter, may you move forward with
+        confidence and a heart full of hope. Keep learning, keep
+        growing, keep believing in yourself, and keep reaching
+        for the dreams that matter to you.
+      </p>
+
+      <p>
+        Thank you for being part of our journey. We wish you
+        happiness in the present, courage for the challenges ahead,
+        and success in all that you aspire to achieve.
+      </p>
+
+      <div class="divider"></div>
+
+      <p class="quote">
+        "Some people become part of our memories.
+        The truly special ones become part of who we are."
+      </p>
+
+      <h2>All the Very Best, Madam! 🌷</h2>
+
+      <p style="text-align:center;">
+        May your future shine with knowledge, purpose,
+        happiness, and countless beautiful achievements.
+      </p>
+
+      <p class="gold" style="text-align:center; font-size:20px;">
+        You will be remembered with gratitude and respect.
+      </p>
+
+      <p class="signature">
+        With heartfelt thanks,<br>
+        Your CM(3)K A family 💐
+      </p>
+    </div>
+
+    <button class="btn primary" onclick="celebrate()">
+      Send More Love 🌸
+    </button>
+
+    <button class="btn" onclick="showScreen('home')">
+      Read Our Messages Again
+    </button>
+
+    <p class="small-note">Made with respect, gratitude, and love. ❤️</p>
+  </div>
+</section>
+
+<script>
+let petalTimer = null;
+
+function showScreen(id) {
+  document.querySelectorAll(".screen").forEach(function(screen) {
+    screen.classList.remove("active");
+  });
+
+  const target = document.getElementById(id);
+
+  if (target) {
+    target.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  if (id === "swami" || id === "final") {
+    startPetals();
+  } else {
+    stopPetals();
+  }
+}
+
+function startPetals() {
+  if (petalTimer) return;
+
+  petalTimer = setInterval(function() {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+
+    const flowers = ["🌸", "🌷", "💮", "🌺", "✨"];
+    petal.textContent =
+      flowers[Math.floor(Math.random() * flowers.length)];
+
+    petal.style.left = Math.random() * 100 + "vw";
+    petal.style.fontSize = (16 + Math.random() * 17) + "px";
+    petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(function() {
+      petal.remove();
+    }, 10500);
+  }, 450);
+}
+
+function stopPetals() {
+  if (petalTimer) {
+    clearInterval(petalTimer);
+    petalTimer = null;
+  }
+
+  document.querySelectorAll(".petal").forEach(function(petal) {
+    petal.remove();
+  });
+}
+
+function celebrate() {
+  startPetals();
+  setTimeout(stopPetals, 7000);
+}
+</script>
+
+</body>
+</html>
